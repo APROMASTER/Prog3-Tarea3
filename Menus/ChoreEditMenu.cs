@@ -4,7 +4,9 @@ class ChoreEditMenu : Menu
     
     public override void Display()
     {
-        string? choreName;
+        var choreToUpdate = ChoresData.Instance.GetChore(choreIndex);
+        string? breforeName = choreToUpdate.Name;
+        string choreDone = choreToUpdate.Done ? "Si" : "No";
         
         while (salir == false)
         {
@@ -12,20 +14,23 @@ class ChoreEditMenu : Menu
             Write.Title("Editar Chore");
             Write.Lines();
             Write.LineJump();
-            Write.Paragraph("Nombre del chore");
-            Write.Paragraph("Hecho");
+            Write.Paragraph($"Nombre: {breforeName}");
+            Write.Paragraph($"Hecho: {choreDone}");
             Write.LineJump();
             Write.Lines();
             Console.Write("Asigna el nuevo nombre del chore: ");
-            choreName = Console.ReadLine();
+            response = Console.ReadLine();
             Console.Clear();
             
-            if (choreName.ToLower() == "x") salir = true;
+            if (response.ToLower() == "x") salir = true;
             else
             {
-                // Agregar funcionalidad para editar chore
-                Console.WriteLine($"El chore ha sido editado exitosamente");
+                var choreUpdate = new Chore(response, choreToUpdate.Done);
+                ChoresData.Instance.UpdateChore(choreIndex, choreUpdate);
+                Console.WriteLine($"El chore {breforeName} ahora se llama -> {response}.");
+                Console.ReadKey();
                 Console.Clear();
+                salir = true;
             }
         }
     }

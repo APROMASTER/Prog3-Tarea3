@@ -2,8 +2,6 @@ class MainMenu : Menu
 {
     public override void Display()
     {
-        string? response;
-        
         while (salir == false)
         {
             Write.Lines();
@@ -28,7 +26,7 @@ class MainMenu : Menu
             {
                 case "1": new ChoreListMenu().Display(); break;
                 case "2": new ChoreAddMenu().Display(); break;
-                case "3": new ChoreEditMenu().Display(); break;
+                case "3": new ChoreEditListMenu().Display(); break;
                 case "4": new ChoreDeleteMenu().Display(); break;
                 case "x": salir = true; break;
                 default: break;

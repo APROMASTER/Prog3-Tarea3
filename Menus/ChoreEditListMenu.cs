@@ -2,19 +2,19 @@ class ChoreEditListMenu : Menu
 {
     public override void Display()
     {
-        string? response;
-        
+        int choreCount = ChoresData.Instance.GetChores().Count;
         while (salir == false)
         {
             Write.Lines();
             Write.Title("Editar Chore");
             Write.Lines();
             Write.LineJump();
-            // -------------- Cambiar luego por la lista real con un For loop ------------ //
-            Write.Enlisted('1', "Levantarme - Hecho");
-            Write.Enlisted('2', "Cepillarme - No Hecho");
-            Write.Enlisted('3', "Bañarme - No Hecho");
-            Write.Enlisted('4', "Dormirme - No Hecho");
+            for (int i = 0; i < choreCount; i++)
+            {
+                var enlistedChore = ChoresData.Instance.GetChore(i);
+                string choreDone = enlistedChore.Done ? "Hecho" : "No hecho";
+                Write.Enlisted(i + 1, $"{enlistedChore.Name} - {choreDone}");
+            }
             Write.LineJump();
             Write.Enlisted('x', "Regresar al menu");
             Write.LineJump();
@@ -27,8 +27,20 @@ class ChoreEditListMenu : Menu
             if (response.ToLower() == "x") salir = true;
             else
             {
-                // Agregar funcionalidad para editar chore
-                Console.WriteLine($"El chore ha sido creado exitosamente");
+                int choreIndex;
+                if (int.TryParse(response, out choreIndex))
+                {
+                    var choreEditMenu = new ChoreEditMenu();
+                    choreEditMenu.choreIndex = choreIndex - 1;
+                    choreEditMenu.Display();
+                    
+                    salir = true;
+                }
+                else
+                {
+                    Console.WriteLine("Seleccion invalida");
+                }
+                Console.ReadKey();
                 Console.Clear();
             }
         }

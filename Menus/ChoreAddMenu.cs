@@ -2,24 +2,26 @@ class ChoreAddMenu : Menu
 {
     public override void Display()
     {
-        string? choreName;
-        
         while (salir == false)
         {
             Write.Lines();
             Write.Title("Agregar Chore");
             Write.Lines();
+            Write.Paragraph("Inserte 'x' para regresar");
+            Write.LineJump();
             
             Console.Write("Nombra el nuevo chore: ");
-            choreName = Console.ReadLine();
+            response = Console.ReadLine();
             Console.Clear();
             
-            if (choreName.ToLower() == "x") salir = true;
+            if (response.ToLower() == "x") salir = true;
             else
             {
-                // Agregar funcionalidad para guardar chore
-                Console.WriteLine($"El chore {choreName} ha sido creado exitosamente");
+                ChoresData.Instance.SaveChore(new Chore(response, false));
+                Console.WriteLine($"El chore {response} ha sido creado exitosamente");
+                Console.ReadKey();
                 Console.Clear();
+                salir = true;
             }
         }
     }

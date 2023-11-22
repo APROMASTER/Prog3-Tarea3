@@ -2,7 +2,7 @@ class ChoreListMenu : Menu
 {
     public override void Display()
     {
-        string? response;
+        int choreCount = ChoresData.Instance.GetChores().Count;
         
         while (salir == false)
         {
@@ -10,22 +10,37 @@ class ChoreListMenu : Menu
             Write.Title("Chores List");
             Write.Lines();
             Write.LineJump();
-            // -------------- Cambiar luego por la lista real con un For loop ------------ //
-            Write.Enlisted('1', "Levantarme - Done");
-            Write.Enlisted('2', "Cepillarme - Not Done");
-            Write.Enlisted('3', "Bañarme - Not Done");
-            Write.Enlisted('4', "Dormirme - Not Done");
+            for (int i = 0; i < choreCount; i++)
+            {
+                var enlistedChore = ChoresData.Instance.GetChore(i);
+                string choreDone = enlistedChore.Done ? "Hecho" : "No hecho";
+                Write.Enlisted(i + 1, $"{enlistedChore.Name} - {choreDone}");
+            }
             Write.LineJump();
             Write.Enlisted('x', "Regresar al menu");
             Write.LineJump();
             Write.Lines();
             
-            Console.Write("Select chore to Do/Undo: ");
+            Console.Write("Eliga un chore para Realizar/Desrealizar: ");
             response = Console.ReadLine();
             Console.Clear();
             
             if (response.ToLower() == "x") salir = true;
-            
+            else
+            {
+                int choreIndex;
+                if (int.TryParse(response, out choreIndex))
+                {
+                    ChoresData.Instance.GetChore(choreIndex - 1).ToggleDone();
+                    salir = true;
+                }
+                else
+                {
+                    Console.WriteLine("Seleccion invalida");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
         }
     }
 }
