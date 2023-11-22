@@ -3,10 +3,19 @@ C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\bin\Debug\net7.0\Prog3-T
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\bin\Debug\net7.0\Prog3-Tarea3.runtimeconfig.json
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\bin\Debug\net7.0\Prog3-Tarea3.dll
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\bin\Debug\net7.0\Prog3-Tarea3.pdb
+<<<<<<< HEAD
+=======
+C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.csproj.AssemblyReference.cache
+>>>>>>> 2497e42e2cb5196dc4bfc0b11699b7a2be5a5dae
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.GeneratedMSBuildEditorConfig.editorconfig
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.AssemblyInfoInputs.cache
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.AssemblyInfo.cs
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.csproj.CoreCompileInputs.cache
+<<<<<<< HEAD
+=======
+C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.csproj.CopyComplete
+>>>>>>> 2497e42e2cb5196dc4bfc0b11699b7a2be5a5dae
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.dll
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\refint\Prog3-Tarea3.dll
 C:\@ITLA\6to Cuatrimestre\Programacion III\Prog3-Tarea3\obj\Debug\net7.0\Prog3-Tarea3.pdb
