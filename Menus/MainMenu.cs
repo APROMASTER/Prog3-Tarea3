@@ -1,7 +1,6 @@
-class MainMenu
+class MainMenu : Menu
 {
-    public static bool salir = false;
-    public static void DisplayMainMenu()
+    public override void Display()
     {
         string? response;
         
@@ -18,17 +17,19 @@ class MainMenu
             Write.Enlisted('4', "Eliminar chore");
             Write.LineJump();
             Write.Enlisted('x', "Salir");
+            Write.LineJump();
             Write.Lines();
             
+            Console.Write("Eliga una opcion: ");
             response = Console.ReadLine();
             Console.Clear();
             
             switch (response.ToLower())
             {
-                case "1": break;
-                case "2": break;
-                case "3": break;
-                case "4": break;
+                case "1": new ChoreListMenu().Display(); break;
+                case "2": new ChoreAddMenu().Display(); break;
+                case "3": new ChoreEditMenu().Display(); break;
+                case "4": new ChoreDeleteMenu().Display(); break;
                 case "x": salir = true; break;
                 default: break;
             }
